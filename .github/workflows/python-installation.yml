@@ -6,10 +6,10 @@ workflow_dispatch:
 jobs:
   build:
     strategy:
-      matrix:
-    runs-on: ubuntu-latest
-    steps:
+        matrix:
         os: [ ubuntu-latest, macos-14, windows-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
